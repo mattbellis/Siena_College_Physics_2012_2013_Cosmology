@@ -12,9 +12,12 @@
 
 import numpy as np
 
+# Pyplot is module for plotting in matplotlib library.
+import matplotlib.pyplot as plt
+
 # We need to give the full path to the directory. This will obviously be 
 # different on your machine, so you will want to edit this by hand. 
-infile = open('/Users/Chris/Desktop/M_Bellis Research/astro_data/wechsler_gals_100k.cat')
+infile = open('/Users/Chris/Desktop/M_Bellis Research/astro_data/wechsler_gals_1M.cat')
 
 # This command will take the entire file, split it into different values using
 # whitespace (tab,space,end-of-line), and iterpret the entries as floats 
@@ -53,5 +56,23 @@ print "\nFirst five entries in arrays."
 print ra[0:5]
 print dec[0:5]
 print z[0:5]
-
 print "\n"
+
+# Choose 10k random pts from 1M range.
+index = range(1000000)
+np.random.shuffle(index)
+index=index[0:10000]
+
+# Plotting RA vs. Dec
+plt.scatter(ra[index],np.cos(np.deg2rad(dec[index])),marker='o',s=1,c='blue')
+
+# Draw plot
+plt.show()
+plt.title('RA v. Dec for slices of Z')
+plt.xlabel('Right Ascension')
+plt.ylabel('Declination')
+
+# Save plot file
+plt.savefig('Ra_v_Dec_100k.png')
+
+
