@@ -14,10 +14,12 @@ import numpy as np
 
 # Pyplot is module for plotting in matplotlib library.
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 # We need to give the full path to the directory. This will obviously be 
 # different on your machine, so you will want to edit this by hand. 
-infile = open('/Users/Chris/Desktop/M_Bellis Research/astro_data/wechsler_gals_1M.cat')
+#infile = open('/Users/Chris/Desktop/M_Bellis Research/astro_data/wechsler_gals_1M.cat')
+infile = open('/home/bellis/Work/Astronomy/catalogs/Wechsler/wechsler_gals.cat')
 
 # This command will take the entire file, split it into different values using
 # whitespace (tab,space,end-of-line), and iterpret the entries as floats 
@@ -61,10 +63,21 @@ print "\n"
 # Choose 10k random pts from 1M range.
 index = range(1000000)
 np.random.shuffle(index)
-index=index[0:10000]
+index=index[0:5000]
+
+radius = z[index].copy()
+theta = np.deg2rad(ra[index])
+phi = np.deg2rad(dec[index])
+x = radius*np.cos(theta)*np.cos(phi)
+y = radius*np.sin(theta)*np.cos(phi)
+z = radius*np.sin(phi)
 
 # Plotting RA vs. Dec
-plt.scatter(ra[index],np.cos(np.deg2rad(dec[index])),marker='o',s=1,c='blue')
+plt.figure()
+#plt.subplot(111,polar=True)
+ax = plt.subplot(111,projection='3d')
+#plt.scatter(ra[index],np.cos(np.deg2rad(dec[index])),marker='o',s=1,c='blue')
+ax.scatter(x,y,z,s=1,c='b',marker='o')
 
 # Draw plot
 plt.show()
