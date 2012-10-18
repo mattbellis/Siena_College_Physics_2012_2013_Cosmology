@@ -63,29 +63,40 @@ print "\n"
 # Choose 10k random pts from 1M range.
 index = range(1000000)
 np.random.shuffle(index)
-index=index[0:5000]
+index=index[0:100000]
 
 radius = z[index].copy()
 theta = np.deg2rad(ra[index])
 phi = np.deg2rad(dec[index])
+
+# Does this free up memory for us?
+#del ra
+#del dec
+#del z
+
 x = radius*np.cos(theta)*np.cos(phi)
 y = radius*np.sin(theta)*np.cos(phi)
 z = radius*np.sin(phi)
 
 # Plotting RA vs. Dec
-plt.figure()
-#plt.subplot(111,polar=True)
-ax = plt.subplot(111,projection='3d')
+fig = plt.figure()
+#ax = plt.subplot(111,polar=True)
+ax = fig.add_axes([0.1, -0.75, 0.8, 1.6], projection='polar')
 #plt.scatter(ra[index],np.cos(np.deg2rad(dec[index])),marker='o',s=1,c='blue')
-ax.scatter(x,y,z,s=1,c='b',marker='o')
+#plt.scatter(np.deg2rad(ra[index]),1.0-np.cos(np.deg2rad(dec[index])),marker='o',s=1,c='blue')
+ax.scatter(np.deg2rad(ra[index]),90.0-dec[index],marker='o',s=1,c='blue')
+ax.set_rmax(92)
+
+#ax = plt.subplot(111,projection='3d')
+#ax.scatter(x,y,z,s=1,c='b',marker='o')
 
 # Draw plot
 plt.show()
-plt.title('RA v. Dec for slices of Z')
-plt.xlabel('Right Ascension')
-plt.ylabel('Declination')
+ax.set_title('RA v. Dec for slices of Z')
+ax.xlabel('Right Ascension')
+ax.ylabel('Declination')
 
 # Save plot file
-plt.savefig('Ra_v_Dec_100k.png')
+fig.savefig('Ra_v_Dec_100k.png')
 
 
