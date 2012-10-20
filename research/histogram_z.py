@@ -53,8 +53,8 @@ print "# dec coords: %d" % (len(dec))
 print "# z coords:   %d" % (len(z))
 
 plt.hist(z,bins=100)
-plt.xlabel('Z-Value (In bin range of 100)')
-plt.ylabel('Number of galaxies in the corresponding Z-value range')
+plt.xlabel('Z-Value')
+plt.ylabel('Number of galaxies')
 
 ### Draw plot
 ###plt.show()
@@ -64,6 +64,6 @@ plt.ylabel('Number of galaxies in the corresponding Z-value range')
 ##plt.ylabel('Declination')
 ##
 ### Save plot file
-plt.savefig('Histogram_of_all_Z.png', orientation = 'portrait')
+plt.savefig('Histogram_of_all_Z_100slices.png', orientation = 'portrait')
 plt.show()
 
