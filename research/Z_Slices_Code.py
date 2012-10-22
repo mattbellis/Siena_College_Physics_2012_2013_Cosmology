@@ -79,7 +79,7 @@ Zmax = .3299888463
 
 for i in range(0,int(Zmax/Zstep)+1):
 
-    output_file_name = "Z-Array_is_greater_than_%d_and_less_than_%d.dat" % (i*Zstep,(i+1)*Zstep)
+    output_file_name = "Z-Array_is_greater_than_%.3f_and_less_than_%.3f.dat" % (i*Zstep,(i+1)*Zstep)
     output_file = open(output_file_name,'w+')
     
     index2 = z>i*Zstep
