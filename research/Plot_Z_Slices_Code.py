@@ -38,7 +38,7 @@ for i in range(0,int(Zmax/Zstep)+1):
     #infile = open("/Users/Chris/Siena_College_Physics_2012_2013_Cosmology/research/Z-Array_is_greater_than_%.3f_and_less_than_%.3f.dat") % (i*Zstep,(i+1)*Zstep)
     #infile_name = "/Users/Chris/Siena_College_Physics_2012_2013_Cosmology/research/Z-Array_is_greater_than_%.3f_and_less_than_%.3f.dat" % (i*Zstep,(i+1)*Zstep)
     infile_name = "Z-Array_is_greater_than_%.3f_and_less_than_%.3f.dat" % (i*Zstep,(i+1)*Zstep)
-    #infile_name = "flat_data.dat" 
+    #infile_name = "flat_data_%.3f_to_%.3f.dat" % (i*Zstep,(i+1)*Zstep)
     print infile_name
     infile = open(infile_name)
 
@@ -83,7 +83,7 @@ for i in range(0,int(Zmax/Zstep)+1):
     #Choose 5k random points to plot. 
     indexran = range(ngals) # Generate random numbers the size of the array!
     np.random.shuffle(indexran)
-    index = index[0:7500]
+    index = indexran[0:7500]
 
 ##    radius = z[index].copy()
 ##    theta = np.deg2rad(ra[index])
@@ -108,7 +108,7 @@ for i in range(0,int(Zmax/Zstep)+1):
     ax.set_xlabel('Right Ascension')
     ax.set_ylabel('Declination')
     plotfilename = "Ra_v_Dec_2D_Z-Array_is_greater_than_%4.3f_and_less_than_%4.3f.png" % (i*Zstep,(i+1)*Zstep)
-    #plotfilename = "plot_of_flat_data.png" 
+    #plotfilename = "plot_of_flat_%4.3f_to_%4.3f.png" % (i*Zstep,(i+1)*Zstep)
     fig.savefig(plotfilename)
 
 
