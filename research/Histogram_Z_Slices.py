@@ -71,38 +71,18 @@ for i in range(0,int(Zmax/Zstep)+1):
 
     ################################################
     ###                                          ###
-    ###  1)    Set up 3D plot coordinates        ###
-    ###     in terms of radius, theta and phi.   ###
-    ###  2) Set up a subplot for polar plotting. ###
-    ###  3)     Assign it as a scatter plot.     ###
+    ###    1)  Plots histogram of the Z_Slice    ###
     ###                                          ###
     ################################################
 
-    #Choose 5k random points to plot. 
-    indexran = range(100000)
-    np.random.shuffle(indexran)
-    index = index[0:7500]
-
-##    radius = z[index].copy()
-##    theta = np.deg2rad(ra[index])
-##    phi = np.deg2rad(dec[index])
-##    x = radius*np.cos(theta)*np.cos(phi)
-##    y = radius*np.sin(theta)*np.cos(phi)
-##    z = radius*np.sin(phi)
-
-##    #3D Plot
-##    plt.figure()
-##    ax = plt.subplot(111,projection='3d')
-##    #plt.scatter(ra[index],np.cos(np.deg2rad(dec[index])),marker='o',s=1,c='blue')
-##    ax.scatter(x,y,z,s=1,c='b',marker='o')
+    #Histogram for each Z-Slice
     plt.figure()
-    ax=plt.scatter(ra[index],np.cos(dec[index]) ,marker ='o',s=1,c='blue')
-
+    plt.hist(z,bins=100)
+    plt.title("Histogram of Zslice greater than "+str(i*Zstep)+" and less than "+str((i+1)*Zstep)+".png")
+    plt.xlabel('Z-Value')
+    plt.ylabel('Number of galaxies')
+    plt.savefig("Histogram_of_Zslice_greater_than_"+str(i*Zstep)+"_and_less_than_"+str((i+1)*Zstep)+".png", orientation = 'portrait')
     #plt.show()
-    plt.title('RA v. Dec for slices of Z')
-    plt.xlabel('Right Ascension')
-    plt.ylabel('Declination')
-    plt.savefig("Ra_v_Dec_2D_Z-Array_is_greater_than_"+str(i*Zstep)+"_and_less_than_"+str((i+1)*Zstep)+".png") #% (i*Zstep,(i+1)*Zstep)
 
 
 print "Plotting loop finished."
