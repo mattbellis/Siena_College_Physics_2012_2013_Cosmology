@@ -14,7 +14,6 @@
 
 
 import sys
-from math import *
 import numpy as np
 from optparse import OptionParser
 
@@ -39,23 +38,25 @@ def main():
     ############################################################################
     #print "Right_Ascension , Declination"
     # Generate the config file
-    print nparticles
+    #print nparticles
 
     ra_range = 90.0
-    dec_range = np.pi/4.0
+    #dec_range = np.pi/4.0
+    dec_range = 1.0
 
     #for i in range(nparticles):
     i=0
     while (i<nparticles):
         output = ""
-        # Generate the ra either from a flat or Gaussian distribution.
-        ra = [0.0]
-        dec = [0.0]
+        
+        ra = 0.0
+        dec = 0.0
 
-        ra[0] = ra_range*np.random.random_sample() 
-        output += "%-7.4f " % (ra[0])
-        dec[0] = acos(dec_range*np.random.random_sample())
-        output += "%-7.4f " % (np.rad2deg(dec[0]))
+        ra = ra_range*np.random.random() 
+        output += "%-7.4f " % (ra)
+
+        dec = np.arccos(dec_range*np.random.random())
+        output += "%-7.4f " % (90.0-np.rad2deg(dec))
 
         output += "%-7.4f " % (1.0)
 
