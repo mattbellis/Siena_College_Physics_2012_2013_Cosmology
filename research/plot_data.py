@@ -18,8 +18,8 @@ from mpl_toolkits.mplot3d import Axes3D
 
 # We need to give the full path to the directory. This will obviously be 
 # different on your machine, so you will want to edit this by hand. 
-#infile = open('/Users/Chris/Desktop/M_Bellis Research/astro_data/wechsler_gals_1M.cat')
-infile = open('/home/bellis/Work/Astronomy/catalogs/Wechsler/wechsler_gals.cat')
+infile = open('/Users/Chris/Desktop/M_Bellis Research/astro_data/wechsler_gals_1M.cat')
+#infile = open('/home/bellis/Work/Astronomy/catalogs/Wechsler/wechsler_gals.cat')
 
 # This command will take the entire file, split it into different values using
 # whitespace (tab,space,end-of-line), and iterpret the entries as floats 
@@ -63,7 +63,12 @@ print "\n"
 # Choose 10k random pts from 1M range.
 index = range(1000000)
 np.random.shuffle(index)
-index=index[0:5000]
+index=index[0:10000]
+
+# Choose 10k random pts from 1M-2M range.
+index = range[1000000:2000000]
+np.random.shuffle(index)
+index=index[0:10000]
 
 radius = z[index].copy()
 theta = np.deg2rad(ra[index])

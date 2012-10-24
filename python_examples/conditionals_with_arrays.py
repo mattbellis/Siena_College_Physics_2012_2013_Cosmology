@@ -12,6 +12,8 @@ print x
 # You can actually use that conditional as indexing!
 
 xsubset = x[x<5]
+y = 10*np.random.random(20)
+#ysubset = y[y<3.75]
 
 print "\nOriginal x-array, but only the values < 5"
 print xsubset
@@ -24,9 +26,10 @@ index1 = x<6
 index = index0*index1
 
 xslice = x[index]
-
+yslice = y[index]
 print "\nOriginal x-array, but only the values where x>4 and x<6"
 print xslice
+print "\nOriginal y-array, but only the values where x>4 and x<6"
+print yslice
 
-print "\n"
-
+print "\n" 

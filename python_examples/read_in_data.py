@@ -14,7 +14,7 @@ import numpy as np
 
 # We need to give the full path to the directory. This will obviously be 
 # different on your machine, so you will want to edit this by hand. 
-infile = open('/home/bellis/Work/Astronomy/catalogs/Wechsler/wechsler_gals.cat')
+infile = open('/Users/Chris/Desktop/M_Bellis Research/astro_data/wechsler_gals_100k.cat')
 
 # This command will take the entire file, split it into different values using
 # whitespace (tab,space,end-of-line), and iterpret the entries as floats 
