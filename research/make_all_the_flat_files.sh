@@ -1,0 +1,14 @@
+python generate_flat_ra_dec.py -n 93899   > flat_data_0.000_to_0.025.dat
+python generate_flat_ra_dec.py -n 284831  > flat_data_0.025_to_0.050.dat
+python generate_flat_ra_dec.py -n 416760  > flat_data_0.050_to_0.075.dat
+python generate_flat_ra_dec.py -n 569225  > flat_data_0.075_to_0.100.dat
+python generate_flat_ra_dec.py -n 696712  > flat_data_0.100_to_0.125.dat
+python generate_flat_ra_dec.py -n 801754  > flat_data_0.125_to_0.150.dat
+python generate_flat_ra_dec.py -n 894097  > flat_data_0.150_to_0.175.dat
+python generate_flat_ra_dec.py -n 963019  > flat_data_0.175_to_0.200.dat
+python generate_flat_ra_dec.py -n 1031695 > flat_data_0.200_to_0.225.dat
+python generate_flat_ra_dec.py -n 1074790 > flat_data_0.225_to_0.250.dat
+python generate_flat_ra_dec.py -n 1100733 > flat_data_0.250_to_0.275.dat
+python generate_flat_ra_dec.py -n 1242132 > flat_data_0.275_to_0.300.dat
+python generate_flat_ra_dec.py -n 1487067 > flat_data_0.300_to_0.325.dat
+python generate_flat_ra_dec.py -n 238730  > flat_data_0.325_to_0.350.dat
