@@ -33,7 +33,8 @@ from mpl_toolkits.mplot3d import Axes3D
 Zstep = .025
 Zmax = .3299888463
 
-for i in range(0,int(Zmax/Zstep)+1):
+#for i in range(0,int(Zmax/Zstep)+1):
+for i in range(0,1):               
 
     #infile = open("/Users/Chris/Siena_College_Physics_2012_2013_Cosmology/research/Z-Array_is_greater_than_%.3f_and_less_than_%.3f.dat") % (i*Zstep,(i+1)*Zstep)
     #infile_name = "/Users/Chris/Siena_College_Physics_2012_2013_Cosmology/research/Z-Array_is_greater_than_%.3f_and_less_than_%.3f.dat" % (i*Zstep,(i+1)*Zstep)
@@ -97,19 +98,23 @@ for i in range(0,int(Zmax/Zstep)+1):
 ##    ax = plt.subplot(111,projection='3d')
 ##    #plt.scatter(ra[index],np.cos(np.deg2rad(dec[index])),marker='o',s=1,c='blue')
 ##    ax.scatter(x,y,z,s=1,c='b',marker='o')
-    fig = plt.figure()
-    ax = fig.add_axes([0.1, -0.75, 0.8, 1.6], projection='polar')
+    fig = plt.figure(figsize=(8,6))
+    ax = fig.add_axes([-0.6, -0.75, 1.3, 1.6], projection='polar')
+    #ax = fig.add_axes([-0.5, -0.75, 1.0, 1.5], projection='polar')
+
     #ax.scatter(ra[index],np.cos(dec[index]) ,marker ='o',s=1,c='blue')
+
     ax.scatter(np.deg2rad(ra[index]),90.0-dec[index],marker='o',s=1,c='blue')
     ax.set_rmax(92)
 
-    #plt.show()
-    ax.set_title('RA v. Dec for slices of Z')
+
+    #ax.set_title('RA v. Dec for slices of Z',ha='left')
+    ax.text(-25,-25, "Ra vs. Dec",ha="right",va="top")
     ax.set_xlabel('Right Ascension')
     ax.set_ylabel('Declination')
     plotfilename = "Ra_v_Dec_2D_Z-Array_is_greater_than_%4.3f_and_less_than_%4.3f.png" % (i*Zstep,(i+1)*Zstep)
     #plotfilename = "plot_of_flat_%4.3f_to_%4.3f.png" % (i*Zstep,(i+1)*Zstep)
     fig.savefig(plotfilename)
-
+    plt.show()
 
 print "Plotting loop finished."
