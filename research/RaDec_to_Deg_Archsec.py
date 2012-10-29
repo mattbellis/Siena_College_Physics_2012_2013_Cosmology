@@ -85,7 +85,10 @@ for RA,DEC in zip(RAarcsec,DECarcsec):
 outfile.close()
 
 
-
+# TO RUN
+# go into command promt, cd to dir
+# type in
+# python RaDec_to_deg_Archsec.py [file name here i.e, flat_data_0.0......dat]
 
 
 
