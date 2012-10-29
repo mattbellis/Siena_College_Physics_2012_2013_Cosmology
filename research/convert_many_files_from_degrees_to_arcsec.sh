@@ -1,0 +1,14 @@
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.000_and_less_than_0.025.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.025_and_less_than_0.050.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.050_and_less_than_0.075.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.075_and_less_than_0.100.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.100_and_less_than_0.125.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.125_and_less_than_0.150.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.150_and_less_than_0.175.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.175_and_less_than_0.200.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.200_and_less_than_0.225.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.225_and_less_than_0.250.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.250_and_less_than_0.275.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.275_and_less_than_0.300.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.300_and_less_than_0.325.dat
+python RaDec_to_Deg_Archsec.py Z-Array_is_greater_than_0.325_and_less_than_0.350.dat
