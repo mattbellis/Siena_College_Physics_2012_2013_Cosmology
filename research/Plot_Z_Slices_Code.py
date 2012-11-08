@@ -109,7 +109,7 @@ for i in range(0,1):
 
 
     #ax.set_title('RA v. Dec for slices of Z',ha='left')
-    ax.text(-25,-25, "Ra vs. Dec",ha="right",va="top")
+    #ax.text(25,25, "Ra vs. Dec",ha="right",va="top")
     ax.set_xlabel('Right Ascension')
     ax.set_ylabel('Declination')
     plotfilename = "Ra_v_Dec_2D_Z-Array_is_greater_than_%4.3f_and_less_than_%4.3f.png" % (i*Zstep,(i+1)*Zstep)
