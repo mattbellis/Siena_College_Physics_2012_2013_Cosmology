@@ -16,7 +16,8 @@ import math
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-infile_name = "/Users/Chris/Siena_College_Physics_2012_2013_Cosmology/python_examples/data0.dat"
+#infile_name = "/Users/Chris/Siena_College_Physics_2012_2013_Cosmology/python_examples/data0.dat"
+infile_name = "../python_examples/data0.dat"
 print infile_name
 infile = open(infile_name)
 
@@ -37,13 +38,18 @@ ycoord = content[index+1]
 
 distanceList = []
 
+npts /= ncolumns
+
 for i in range(0,npts):
     for j in range(i+1,npts):
         #distance = infile[i] - infile[j]
-        distance = math.sqrt((xcoord[i])^2 + (ycoord[j])^2)
+        distance = np.sqrt((xcoord[i])**2 + (ycoord[j])**2)
         distanceList.append(distance)
 
-print distanceList
+#print distanceList
+
+plt.hist(distanceList)
+plt.show()
 
 
 
