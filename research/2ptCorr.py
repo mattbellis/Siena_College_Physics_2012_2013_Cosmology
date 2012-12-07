@@ -16,8 +16,8 @@ import math
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-#infile_name = "/Users/Chris/Siena_College_Physics_2012_2013_Cosmology/python_examples/data0.dat"
-infile_name = "../python_examples/data0.dat"
+infile_name = "/Users/Chris/Siena_College_Physics_2012_2013_Cosmology/python_examples/data0.dat"
+#infile_name = "../python_examples/data0.dat"
 print infile_name
 infile = open(infile_name)
 
@@ -37,21 +37,81 @@ ycoord = content[index+1]
 #print "# y-coordinates is" % (len(ycoord))
 
 distanceList = []
+densityList = []
+##
+##npts /= ncolumns
+##
+##for i in range(0,npts):
+##    for j in range(i+1,npts):
+##        #distance = infile[i] - infile[j]
+##        distance = np.sqrt((xcoord[i])**2 + (ycoord[j])**2)
+##        distanceList.append(distance)
+##
+###print distanceList
+##
+####plt.hist(x,bins=100,range=(0,6))
+##plt.hist(distanceList,bins=40)
+##plt.show()
 
-npts /= ncolumns
 
-for i in range(0,npts):
-    for j in range(i+1,npts):
-        #distance = infile[i] - infile[j]
-        distance = np.sqrt((xcoord[i])**2 + (ycoord[j])**2)
-        distanceList.append(distance)
+##10x10 grid.
 
-#print distanceList
+GridBlocks = 10;
+##Find min and max values of x and y.
+##MaxX = int(max(xcoord)+1)
+##MaxY = int(max(ycoord))
+##MinX = int(min(xcoord))
+##MinY = int(min(ycoord))
+##
+##DeltaX = (MaxX-MinX)/GridBlocks
+##DeltaY = (MaxY-MinY)/GridBlocks
+##
+##for i in np.arange(MinX,MaxX,DeltaX):
+##    for j in np.arange(MinY,MaxY,DeltaY):
+##        indexX1 = xcoord>i
+##        indexX2 = xcoord<i+DeltaX
+##        indexY1 = ycoord>j
+##        indexY2 = ycoord<j+DeltaY
+##
+##        indexX = indexX1*indexX2
+##        indexY = indexY1*indexY2
+##
+##        xslice = xcoord[indexX]
+##        yslice = ycoord[indexY]
+##
+##        if len(xslice) == len(yslice):
+##            densityList.append(len(xslice))
+##        else:
+##            print "ERROR: X amount is not equal to Y amount!"
+##            print xslice
+##            print yslice
+##
+##plt.hist(densityList)
+##plt.show()
 
-plt.hist(distanceList)
+for i in np.arange(0,10,1):
+    for j in np.arange(0,10,1):
+    
+        indexX1 = xcoord>i
+        indexX2 = xcoord<i+1
+        indexY1 = ycoord>j
+        indexY2 = ycoord<j+1
+
+        indexX = indexX1*indexX2
+        indexY = indexY1*indexY2
+
+        xslice = xcoord[indexX]
+        yslice = ycoord[indexY]
+
+        if len(xslice) == len(yslice):
+            densityList.append(len(xslice))
+        else:
+            print "ERROR: X amount is not equal to Y amount!"
+            print xslice
+            print yslice
+
+plt.hist(densityList)
 plt.show()
-
-
 
 
 
