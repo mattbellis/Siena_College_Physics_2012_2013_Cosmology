@@ -5,12 +5,22 @@ import matplotlib.pylab as plt
 # distribution with mean=5.0 and sigma=1.0
 npts = 1000
 mu = 5.0
-sig = 1.0
-# x will be a numpy array which has particular properties.
-x = np.random.normal(loc=mu,scale=sig,size=npts)
+sig = 0.5
 
-# Do the same for npts more random numbers for a y-variable
-y = np.random.normal(loc=mu,scale=sig,size=npts)
+#xcenter = [2.0,8.0,2.0,8.0]
+#ycenter = [2.0,2.0,8.0,8.0]
+
+xcenter = [5.0,5.0,5.0,5.0]
+ycenter = [5.0,5.0,5.0,5.0]
+
+x = np.array([])
+y = np.array([])
+for xc,yc in zip(xcenter,ycenter):
+    # x will be a numpy array which has particular properties.
+    x = np.append(x,np.random.normal(loc=mu,scale=sig,size=npts) + xc)
+
+    # Do the same for npts more random numbers for a y-variable
+    y = np.append(y,np.random.normal(loc=mu,scale=sig,size=npts) + yc)
 
 # Make a figure on which to place the histogram
 plt.figure()
@@ -19,6 +29,7 @@ plt.figure()
 # (range) in the constructor.
 plt.scatter(x,y,marker='o',s=5.0,c='blue')
 
+#outfile0 = open('data1.dat','w+')
 outfile0 = open('data0.dat','w+')
 for a,b in zip(x,y):
     output = "%f %f\n" % (a,b)
