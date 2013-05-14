@@ -55,7 +55,8 @@ ngals = nentries/ncolumns
 index = np.arange(0,nentries,ncolumns)
 ra =  content[index]
 dec = content[index+1]
-zredshift =   content[index+2]
+#zredshift =   content[index+2]
+zredshift = 0.025*np.random.random(ngals) + 0.025
 
 print "# galaxies: %d" % (ngals)
 print "# ra coords:  %d" % (len(ra))
@@ -74,7 +75,13 @@ x = zredshift*np.cos(np.deg2rad(ra))*np.cos(np.deg2rad(dec))
 y = zredshift*np.sin(np.deg2rad(ra))*np.cos(np.deg2rad(dec))
 z = zredshift*np.sin(np.deg2rad(dec))
 
-for a,b,c,A,B,C in zip(x,y,z,ra,dec,zredshift):
+# Grab random numbers
+index = np.arange(0,ngals-1)
+np.random.shuffle(index)
+
+print x[index]
+
+for a,b,c,A,B,C in zip(x[index],y[index],z[index],ra[index],dec[index],zredshift[index]):
     output = "%8.2f %8.2f %8.2f %8.2f %8.2f %8.2f\n" % (a,b,c,A,B,C)
     outfile.write(output)
 

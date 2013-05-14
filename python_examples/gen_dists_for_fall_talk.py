@@ -3,7 +3,7 @@ import matplotlib.pylab as plt
 
 # Generate npts random numbers drawn from a normal (Gaussian)
 # distribution with mean=5.0 and sigma=1.0
-npts = 10000
+npts = 1000
 mu = 5.0
 sig = 1.0
 # x will be a numpy array which has particular properties.
